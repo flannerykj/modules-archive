@@ -1,0 +1,5 @@
+export const SET_SEARCHED_RECIPES = 'SET_SEARCHED_RECIPES';
+export const ADD_RECIPE = 'ADD_RECIPE';
+export const FETCH_BOOKS = 'FETCH_BOOKS';
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'; 
+export const REQUEST_POSTS = 'REQUEST_POSTS'; 

@@ -1,0 +1,73 @@
+
+/* Menu
+=======*/
+.selected {
+  font-weight: bold;
+}
+ul.nav {
+  display: inline !important;
+}
+.nav li a{
+  display: inline-block;
+}
+.nav li {
+  display: inline-block;
+}
+.nav-item {
+  max-width: 100px;
+}
+
+/* APP LAYOUT
+=================*/
+.page-content {
+  margin-top: 30px;
+}
+
+
+/* AddItem
+=================*/
+
+.form-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.form-control {
+  width: 100%;
+}
+.button-td {
+  width: 10%;
+}
+
+.button-td button {
+  width: 120px;
+  height: 40px;
+}
+
+.form-control {
+  height: 40px;
+}
+
+/* ItemList
+=================*/
+
+.list-item {
+}
+.remove-item {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  width: 20px;
+  text-align: center;
+}
+
+/* Check
+=================*/
+.alert strong {
+  padding-left: 10px;
+}
+
+button.check, button.clear {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+}

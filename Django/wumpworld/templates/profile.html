@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block page-title %} 
+	{{u.username}} 
+{% endblock %}
+
+{% block page-breadcrumbs %} 
+{% endblock %}
+
+{% block page-options %} 
+	{% if user.username == u.username %}
+		<a class="btn btn-info" role="button" href="{% url 'userprofile:edit' u.username %}">Edit Profile</a>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row"> 
+			{% if user.username == u.username %}
+				<div class='profile-pic' style="background-image: url('/media/{{u.profile.profile_pic}}');"></div>
+			{% else %}
+				<div class='profile-pic' style="background-image: url('/static/images/placeholders/placeholder-hi.png');"> </div>
+			{% endif %}
+
+	<div class="basic-info">
+		<div class="list-group">
+		  <div class="list-group-item flex-column align-items-start">
+		    <div class="d-flex w-100 justify-content-between">
+		    </div>
+		    <table class="table mb-1">
+    			<tr class="first"><td><strong>Username:</strong></td>     <td>{{ u.username }}</td></tr>
+    			<tr><td><strong>Bio:</strong></td>          <td>{{ u.profile.bio }}</strong></td></tr>
+  				<tr><td><strong>Location:</strong></td>     <td>{{ u.profile.location }}</td></tr>
+  				<tr><td><strong>Birth Date:</strong></td>   <td>{{ u.profile.birth_date }}</td></tr>
+		    </table>
+		  </div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

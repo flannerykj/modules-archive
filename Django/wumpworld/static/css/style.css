@@ -1,0 +1,136 @@
+/*ALL
+======================*/ 
+.icon {
+	width: 20px;
+	opacity: 0.6;
+}
+
+/*HEADER
+=================================*/ 
+.main {margin-top: 40px;}
+
+.navbar {
+	background-color: #f5f5f5 !important;
+}
+
+@media (max-width: 576px) {
+    nav .container {
+        width: 100%;
+    }
+}
+
+/*MAIN
+==================*/ 
+.page-header {
+	margin-bottom: 50px;
+}
+.page-title {
+ 	float: left;
+}
+
+.page-options {
+	float: right;
+}
+
+/*PROFILE
+=================*/ 
+	.profile-pic {
+		border-radius: 50%;
+		width: 200px;
+		height: 200px;
+		background-size: cover;
+	}
+
+@media (max-width: 486px) {
+	.profile-pic {
+		text-align: center;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+
+	.basic-info {
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+}
+@media (min-width: 487px) {
+	.profile-pic {
+		float: left;
+		position: absolute;
+	}
+
+	.basic-info {
+		position: relative;
+			width: 100%;
+		float: right;
+		margin-left: 220px;
+
+	}
+}
+
+.first td {
+	border: none !important;
+	}
+
+/*POST INDEX
+=========================*/ 
+.blog-post-card {
+	margin-bottom: 40px;
+}
+.card-img-bottom {
+  height: 100%;
+  min-height: 250px;
+  background-size:cover;
+}
+	
+@media (min-width: 768px) {
+	.no-padding-right {
+	  padding-right: 0 !important;
+	}
+}
+
+.post-tag {
+	border: 1px #eee solid !important;
+	background-color: #eeeeee !important;
+}
+
+.post-tag:hover {
+	border: 1px solid grey !important;
+}
+/*POST SINGLE
+=========================*/ 
+.post-metadata {
+	margin-bottom: 30px;
+}
+
+.post-main {
+	padding-right: 30px !important;
+}
+
+.post-sidebar {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #dddddd;
+}
+
+/*FOOTER
+=================================*/ 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  padding-bottom: 100px;
+  background-color: #f5f5f5 !important;
+}
+.footer {
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}

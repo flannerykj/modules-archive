@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='./Reader.js'></script>
+	<script src='./Writer.js'></script>
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+	<h1>Reader</h1>
+	<div id="read-data"> 
+	</div>
+
+
+	<h1>Writer</h1>
+	<div id="write-data"> 
+		<h2 id="message"></h2>
+    <form id='foo' onSubmit="postForm(event);">
+      <div className="form-group">
+        <p>
+          <label>Name</label>
+          <input className="form-control" id='name' name='name' type='text'/>
+        </p><p>
+          <label>Email Address</label>
+          <input className="form-control" id='email' name='email' type='email'/>
+        </p><p>
+          <label>Phone Number</label>
+          <input className="form-control" id='phone' name='phone' type='tel'/>
+        </p><p>
+          <label>Message</label>
+          <textarea className="form-control" id='message' name='message' rows='5'></textarea>
+        </p>
+          <div id='success'></div>
+          <button className="btn btn-info"type='submit'>Send</button>
+        </div>
+    </form>
+
+	</div>
+
+	<script>
+		$(document).ready(function(){
+         loadData("https://spreadsheets.google.com/feeds/cells/1inXfJuDM_lXS_Yaht-AQA5wfqFbriZsiiETT3eUS7fo/od6/public/values?alt=json")
+       });
+	</script>
+
+</body>
+</html>

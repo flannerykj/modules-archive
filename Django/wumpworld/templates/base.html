@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css" />
+  
+  <script src="{% static '/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/js/jquery.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <title>{% block title %} Wump World {%endblock%}</title>
+</head>
+
+<body>
+    {% with url_name=request.resolver_match.url_name %}
+    <nav class="navbar navbar-toggleable-md navbar-light">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">WW</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="#">Item1</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Item2</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item {% if url_name == 'blog:main' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'blog:main' %}">Blog</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav pull-right"> 
+            {% if user.is_authenticated %}
+            <li class="nav-item"> 
+              <a class="nav-link" href="{% url 'userprofile:main' user.username %}"> Hi, {{ user.username }}! </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url 'userprofile:main' user.username %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="icon" src="{% static '/images/icons/noun-user.png' %}"/>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="{% url 'userprofile:main' user.username %}">Profile </a>
+                </li>
+                <li class="nav-item">
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </li>
+              </ul>
+            </li>
+
+            {% else %}
+            <li>
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% endwith %}
+    
+    <div class="main container">
+      <div class="row page-header"> 
+        <div class="col-md-12">
+          <h1 class="page-title">{% block page-title %}{% endblock %}</h1>
+          <span class="page-options"> {% block page-options %}{% endblock %}</span>
+        </div>
+      </div>
+      <div class="page-content"> 
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted"> &#169; WW</p>
+      </div>
+    </footer>
+
+</body>
+</html>

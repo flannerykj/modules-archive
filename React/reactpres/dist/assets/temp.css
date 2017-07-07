@@ -1,0 +1,75 @@
+
+/* Menu
+=======*/
+.selected {
+  font-weight: bold;
+}
+ul.nav {
+  display: inline !important;
+}
+.nav li a{
+  display: inline-block;
+}
+.nav li {
+  display: inline-block;
+}
+.nav-item {
+  max-width: 100px;
+}
+
+/* GENERAL
+=================*/
+.page-content {
+  margin-top: 30px;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+/* SLIDE CONTROLS
+=================*/
+
+.slide-control {
+  width:800px; margin:0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button.arrow {
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #dddddd;
+}
+
+.slide-index {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+
+/* SLIDE
+=================*/
+.slide {
+  display: inline-block; /* shrink to fit */
+  width: 100%;           /* whatever width you like */
+  position: relative;    /* so .content can use position: absolute */
+  background-color: white;
+}
+.slide::after {
+  padding-top: 56.25%; /* percentage of containing block _width_ */
+  display: block;
+  content: '';
+}
+.slide-content {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+  border: 1px solid #dddddd;            /* just so you can see the box */
+    padding: 60px;
+}
+
+.title {
+  text-align: center;
+  vertical-align: middle;
+}

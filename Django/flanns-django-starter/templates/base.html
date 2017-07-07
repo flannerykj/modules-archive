@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>{% block title %}Wump World% endblock {%endblock%}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">WW</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <span class="menu-icon-wrap"><img class="menu-icon" src="#"/></span> 
+                    <span class="dropdown-item-text"> Item1 </span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <span class="menu-icon-wrap"><img class="menu-icon" src="#"/></span> 
+                    <span class="dropdown-item-text">Item2</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav pull-right"> 
+            {% if user.is_authenticated %}
+            <span class="navbar-text"> 
+              Hi, {{ user.username }}!
+            </span>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'userprofile:main' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <hr>
+  <footer>
+  </footer>
+</body>
+</html>

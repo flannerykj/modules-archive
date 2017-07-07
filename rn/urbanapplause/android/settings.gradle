@@ -1,0 +1,3 @@
+rootProject.name = 'urbanapplause'
+
+include ':app'
